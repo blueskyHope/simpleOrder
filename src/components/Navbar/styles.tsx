@@ -13,7 +13,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-  background-color: #205f07;
+  background-color: #186239;
   padding: 0 8% 0 8%;
   width: 100%;
 `;

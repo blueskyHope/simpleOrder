@@ -19,6 +19,8 @@ export const Container = styled.div`
   background-color: white;
   padding: 0.5% 8% 0.5% 8%;
   width: 100%;
+  box-shadow: 5px 5px 5px lightblue;
+  z-index: 10;
 `;
 
 export const Wrapper = styled(NavItemWrapper)`
@@ -30,7 +32,7 @@ export const Wrapper = styled(NavItemWrapper)`
 `;
 
 export const ApproveButton = styled(Button)`
-  background-color: #205f07;
+  background-color: #186239;
   color: white;
   &:active {
     background-color: black;

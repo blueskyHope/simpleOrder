@@ -3,14 +3,16 @@ import { CssBaseline } from '@mui/material';
 import Navbar from './components/Navbar';
 import OrderTab from './components/OrderTab';
 import Products from './components/Products';
+import AddModal from './components/AddModal';
+import { AppContainer } from './App.styles';
 
 const App: React.FC = () => (
-  <div>
+  <AppContainer>
     <CssBaseline />
     <Navbar />
     <OrderTab />
-    <Products />
-  </div>
+    <AddModal />
+  </AppContainer>
 );
 
 export default App;

@@ -9,4 +9,6 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   overflow: auto;
+  padding-top: 40vh;
+  padding-bottom: 10vh;
 `;
