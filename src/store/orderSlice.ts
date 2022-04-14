@@ -47,7 +47,7 @@ export const updateProduct = createAsyncThunk<{ status: number }, UpdateProductT
 interface ChangeStatusType {
   product: {
     id: string;
-    status: string;
+    status: number;
   };
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal } from './../../shared/Modal';
 import { ModalContainer } from './../../shared/ModalContainer';
@@ -29,9 +29,14 @@ const UpdateModal: React.FC<Props> = (props) => {
   const { id, name, brand, price, quantity, status } = { ...props.product };
 
   const dispatch = useDispatch<AppDispatch>();
-  const [priceVal, setPriceVal] = useState(price);
-  const [quantityVal, setQuantityVal] = useState(quantity);
+  const [priceVal, setPriceVal] = useState(0);
+  const [quantityVal, setQuantityVal] = useState(0);
   const [checkStates, setCheckStates] = useState([false, false, false, false]);
+
+  useEffect(() => {
+    setQuantityVal(quantity);
+    setPriceVal(price);
+  }, [quantity, price]);
 
   const sendYes = () => {
     dispatch(
@@ -116,7 +121,7 @@ const UpdateModal: React.FC<Props> = (props) => {
                     }
                   }}
                 />
-                <Input value={'$' + priceVal * quantityVal} disabled />
+                <Input value={'$' + (priceVal * quantityVal).toFixed(1)} disabled />
               </Wrapper>
             </Container>
             <Wrapper justifyContent="center">

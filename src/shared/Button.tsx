@@ -23,6 +23,10 @@ export const ColorButton = styled(Button)`
   }
 `;
 
+interface Props {
+  marginRight?: number;
+}
 export const TextButton = styled.p`
   cursor: pointer;
+  margin-right: ${(props: Props) => (props.marginRight ? props.marginRight : '5px')};
 `;

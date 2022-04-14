@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BasicText } from '../../shared/BasicText';
 import { BasicContainer } from '../../shared/BasicContainer';
 import { BasicWrapper } from '../../shared/BasicWrapper';
+import { BasicCheckbox } from '../../shared/BasicCheckbox';
 
 export const Text = styled(BasicText)``;
 
@@ -37,12 +38,7 @@ export const Input = styled.input`
   border-radius: 3px;
 `;
 
-export const StyledCheckbox = styled.button`
-  display: inline-block;
+export const StyledCheckbox = styled(BasicCheckbox)`
   padding: 7px 20px 7px 20px;
   margin-left: 35px;
-  border: 1px solid #535e4f;
-  border-radius: 30px;
-  background: ${(props: { checked: boolean }) => (props.checked ? 'salmon' : 'white')};
-  transition: all 150ms;
 `;

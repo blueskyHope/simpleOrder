@@ -8,7 +8,7 @@ import { RootState, AppDispatch } from './store';
 
 import Navbar from './components/Navbar';
 import OrderTab from './components/OrderTab';
-import Products from './components/Products';
+import OrderTable from './components/OrderTable';
 import UpdateModal from './components/UpdateModal';
 import { CM_TOP_CENTER } from './@types/constants';
 
@@ -19,7 +19,8 @@ const App: React.FC = () => {
   const order = useSelector((state: RootState) => state.orderState.order);
   const products = useSelector((state: RootState) => state.productsState.products);
 
-  const [updateShow, setUpdateShow] = useState(true);
+  const [updateShow, setUpdateShow] = useState(false);
+  const [productId, setProductId] = useState(0);
 
   useEffect(() => {
     dispatch(getOrder());
@@ -34,21 +35,28 @@ const App: React.FC = () => {
     setUpdateShow(value);
   };
 
+  const clickEditProduct = (id: number): void => {
+    setProductId(id);
+    setUpdateShow(true);
+  };
+
   return (
-    <AppContainer>
-      <CssBaseline />
-      <Navbar />
-      <OrderTab />
-      <Products />
+    <>
+      <AppContainer>
+        <CssBaseline />
+        <Navbar />
+        <OrderTab />
+        <OrderTable tableData={order?.products} clickEditProduct={clickEditProduct} />
+      </AppContainer>
       {order && (
         <UpdateModal
           handleClose={closeUpdateModal}
           show={updateShow}
           openPos={CM_TOP_CENTER}
-          product={order.products[0]}
+          product={order.products[productId]}
         />
       )}
-    </AppContainer>
+    </>
   );
 };
 

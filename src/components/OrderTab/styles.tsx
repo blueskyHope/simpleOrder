@@ -12,6 +12,8 @@ export const Container = styled(BasicContainer)`
   color: black;
   background-color: white;
   padding: 0.5% 8% 0.5% 8%;
+  box-shadow: 5px 5px 5px lightblue;
+  z-index: 10;
 `;
 
 export const Wrapper = styled(BasicWrapper)`

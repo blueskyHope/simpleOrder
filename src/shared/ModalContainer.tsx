@@ -38,4 +38,5 @@ export const ModalContainer = styled.div`
   border-radius: 10px;
   padding: 0.75rem;
   color: rgba(0, 0, 139, 0.7);
+  min-width: 800px;
 `;

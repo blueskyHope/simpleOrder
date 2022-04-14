@@ -13,7 +13,7 @@ const ordersDB = {
         brand: 'Gordon Choice Choice',
         price: 60.67,
         quantity: 33,
-        status: ''
+        status: 0
       },
       {
         id: '34kjdgkiwe49dje92',
@@ -21,7 +21,7 @@ const ordersDB = {
         brand: 'Gordon Choice Choice',
         price: 60.67,
         quantity: 25,
-        status: ''
+        status: 0
       },
       {
         id: '335lf94ofdlr',
@@ -29,7 +29,7 @@ const ordersDB = {
         brand: 'Hormel Black Labelmany',
         price: 60.67,
         quantity: 0,
-        status: ''
+        status: 0
       },
       {
         id: '3434dkreiee',
@@ -37,7 +37,7 @@ const ordersDB = {
         brand: 'Hormel Black Labelmany',
         price: 60.67,
         quantity: 13,
-        status: ''
+        status: 0
       },
       {
         id: '123dfdfe21431',
@@ -45,7 +45,7 @@ const ordersDB = {
         brand: 'Hormel Black Labelmany',
         price: 60.67,
         quantity: 0,
-        status: ''
+        status: 0
       },
       {
         id: '543iji3i3940',
@@ -53,7 +53,7 @@ const ordersDB = {
         brand: 'Hormel Black Labelmany',
         price: 60.67,
         quantity: 15,
-        status: ''
+        status: 0
       },
       {
         id: '4343j5i43io3',
@@ -61,7 +61,7 @@ const ordersDB = {
         brand: 'Hormel Black Labelmany',
         price: 60.67,
         quantity: 15,
-        status: ''
+        status: 0
       },
       {
         id: '434ouj385044',
@@ -69,7 +69,7 @@ const ordersDB = {
         brand: 'Hormel Black Labelmany',
         price: 60.67,
         quantity: 24,
-        status: ''
+        status: 0
       },
       {
         id: '3433434349dje92',
@@ -77,7 +77,7 @@ const ordersDB = {
         brand: 'Gordon Choice Choice',
         price: 60.67,
         quantity: 15,
-        status: ''
+        status: 0
       }
     ]
   }

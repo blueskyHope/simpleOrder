@@ -5,7 +5,7 @@ interface ModalType {
 }
 
 export const Modal = styled.div`
-  z-index: auto;
+  z-index: 20;
   display: ${({ show }: ModalType) => (show ? 'block' : 'none')};
   position: fixed;
   top: 0;
