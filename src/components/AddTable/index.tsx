@@ -1,16 +1,41 @@
 import React, { useState } from 'react';
-import { StyledTable } from '../../shared/Table';
+import { StyledHead, StyledContent } from '../../shared/ModalTable';
 import { Card, CardHeading, CardHeader, CardBody, CardFooter } from '../../shared/Card';
-import { Wrapper } from './styles';
+import { Wrapper, TableContent, TableHead } from './styles';
 import { SearchGroup } from '../../shared/Search';
 import { Button, TextButton, ApproveButton } from '../../shared/Button';
 import { Input } from '../../shared/Input';
+import { Text } from '../../shared/Text';
 import AvocadoHass from '../../assets/images/Avocado Hass.jpg';
 import { PrintIcon, ClearButton, CheckButton, SearchIcon } from '../../shared/Icons';
 
 const tableData = {
   header: ['', 'Product name', 'Brand', 'Packing', 'Price($)', 'Qt.'],
   content: [
+    {
+      thumbnail: AvocadoHass,
+      productname: 'Chicken Breast Fillets, Boneless matuumaMarinated 6 Ounce Raw, Invivid',
+      brand: 'Hormel Black Labelmany',
+      price: '$60',
+      quantity: '15',
+      total: '3000'
+    },
+    {
+      thumbnail: AvocadoHass,
+      productname: 'Chicken Breast Fillets, Boneless matuumaMarinated 6 Ounce Raw, Invivid',
+      brand: 'Hormel Black Labelmany',
+      price: '$60',
+      quantity: '15',
+      total: '3000'
+    },
+    {
+      thumbnail: AvocadoHass,
+      productname: 'Chicken Breast Fillets, Boneless matuumaMarinated 6 Ounce Raw, Invivid',
+      brand: 'Hormel Black Labelmany',
+      price: '$60',
+      quantity: '15',
+      total: '3000'
+    },
     {
       thumbnail: AvocadoHass,
       productname: 'Chicken Breast Fillets, Boneless matuumaMarinated 6 Ounce Raw, Invivid',
@@ -65,8 +90,8 @@ const AddTable: React.FC = () => {
           </Wrapper>
         </CardHeader>
         <CardBody>
-          <StyledTable>
-            <div>
+          <TableHead>
+            <StyledHead>
               <thead>
                 <tr>
                   {tableData.header.map((item) => (
@@ -74,8 +99,10 @@ const AddTable: React.FC = () => {
                   ))}
                 </tr>
               </thead>
-            </div>
-            <div>
+            </StyledHead>
+          </TableHead>
+          <TableContent>
+            <StyledContent>
               <tbody>
                 {tableData.content.map((row) => (
                   <tr>
@@ -94,11 +121,13 @@ const AddTable: React.FC = () => {
                   </tr>
                 ))}
               </tbody>
-            </div>
-          </StyledTable>
+            </StyledContent>
+          </TableContent>
         </CardBody>
         <CardFooter>
-          <Wrapper flexDirection="row">Total: 1 product</Wrapper>
+          <Wrapper flexDirection="row">
+            <Text>Total: 1 product</Text>
+          </Wrapper>
           <Wrapper flexDirection="row">
             <Button>Back</Button>
             <ApproveButton>Add</ApproveButton>

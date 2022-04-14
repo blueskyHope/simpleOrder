@@ -11,7 +11,7 @@ const App: React.FC = () => (
     <CssBaseline />
     <Navbar />
     <OrderTab />
-    <AddModal />
+    <Products />
   </AppContainer>
 );
 
