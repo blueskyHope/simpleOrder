@@ -7,6 +7,8 @@ interface Props {
   alignItems?: string;
   maxWidth?: string;
   margin?: string;
+  width?: string;
+  justifyContent?: string;
 }
 
 export const PageItemWrapper: React.FC<Props> = ({ className, children }) => {
