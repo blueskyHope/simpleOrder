@@ -11,10 +11,12 @@ interface ProductsType {
   products: null | Array<OrderProduct>;
 }
 
-export const addProductsToOrder = createAsyncThunk<object, ProductsType>(
+export const addProductsToOrder = createAsyncThunk<{ status: number }, ProductsType>(
   '/api/orders/addProducts',
-  async (data: ProductsType) => {
-    return api.post<object>('/api/orders/addProducts', data);
+  async (data: ProductsType, thunkAPI) => {
+    const result = await api.post<{ status: number }>('/api/orders/addProducts', data);
+    if (result.status === 200) thunkAPI.dispatch(getOrder());
+    return result;
   }
 );
 

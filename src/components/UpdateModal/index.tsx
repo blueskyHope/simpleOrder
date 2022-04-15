@@ -4,11 +4,11 @@ import { Modal } from './../../shared/Modal';
 import { ModalContainer } from './../../shared/ModalContainer';
 import { Text, Container, Wrapper, Image, ButtonCircle, Input, StyledCheckbox } from './styles';
 import { Close } from '@mui/icons-material';
-import Avocado_Hass from './../../assets/Avocado_Hass.jpg';
-import { Button, ColorButton } from './../../shared/Button';
+import { Button, ColorButton } from '../../shared/Button';
 import { OrderProduct } from './../../@types/order';
 import { AppDispatch } from './../../store';
 import { updateProduct } from './../../store/orderSlice';
+import Avocado_Hass from './../../assets/Avocado_Hass.jpg';
 
 const optionStrings = [
   'Missing Product',
@@ -18,17 +18,16 @@ const optionStrings = [
 ];
 
 interface Props {
-  handleClose: (value: boolean) => void;
   show: boolean;
   openPos: string;
   product: OrderProduct;
+  onClose: (value: boolean) => void;
 }
 
-const UpdateModal: React.FC<Props> = (props) => {
-  const { handleClose, show, openPos } = { ...props };
-  const { id, name, brand, price, quantity, status } = { ...props.product };
-
+const UpdateModal: React.FC<Props> = ({ show, openPos, product, onClose }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const { id, name, brand, price, quantity, status } = product;
+
   const [priceVal, setPriceVal] = useState(0);
   const [quantityVal, setQuantityVal] = useState(0);
   const [checkStates, setCheckStates] = useState([false, false, false, false]);
@@ -51,10 +50,10 @@ const UpdateModal: React.FC<Props> = (props) => {
         }
       })
     );
-    handleClose(false);
+    onClose(false);
   };
 
-  const sendNo = () => handleClose(false);
+  const sendNo = () => onClose(false);
 
   const changeCheckState = (index: number) => {
     setCheckStates([

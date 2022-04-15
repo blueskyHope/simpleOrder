@@ -13,13 +13,11 @@ export const Wrapper = styled(BasicWrapper)`
 `;
 
 export const Container = styled(BasicContainer)`
-  padding-top: 600px;
+  display: block;
+  padding-top: 60px;
   padding-bottom: 50px;
-  justify-content: center;
-  align-items: center;
   color: black;
   background-color: #f8f4f4;
-  height: 100vh;
   overflow: auto;
 `;
 

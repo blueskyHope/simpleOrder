@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { BasicText } from './../../shared/BasicText';
-import { BasicContainer } from './../../shared/BasicContainer';
+import { BasicContainer } from '../../shared/BasicContainer';
 import { BasicWrapper } from './../../shared/BasicWrapper';
 
 export const Text = styled(BasicText)`

@@ -5,10 +5,11 @@ interface Props {
   display?: string;
   flexDirection?: string;
   alignItems?: string;
+  justifyContent?: string;
   maxWidth?: string;
   margin?: string;
   width?: string;
-  justifyContent?: string;
+  height?: string;
 }
 
 export const PageItemWrapper: React.FC<Props> = ({ className, children }) => {

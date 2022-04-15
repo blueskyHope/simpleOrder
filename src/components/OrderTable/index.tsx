@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Close } from '@mui/icons-material';
 import { changeStatus } from './../../store/orderSlice';
@@ -20,21 +20,31 @@ import {
   Text
 } from './styles';
 import AvocadoHass from '../../assets/Avocado_Hass.jpg';
-import { OrderProduct } from './../../@types/order';
+import { Order, OrderProduct } from './../../@types/order';
 import { CM_TOP_CENTER } from '../../@types/constants';
+
+import Dashbar from './../Dashbar';
 
 const tableHeader = ['', 'Product name', 'Brand', 'Price', 'Quantity', 'Total', 'Status'];
 
 interface Props {
-  tableData: Array<OrderProduct> | undefined;
+  orderData: Order;
   clickEditProduct: (id: number) => void;
+  openAddModal: () => void;
 }
 
-const OrderTable: React.FC<Props> = ({ tableData, clickEditProduct }) => {
+const OrderTable: React.FC<Props> = ({ orderData, clickEditProduct, openAddModal }) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const [show, setShow] = useState<boolean>(false);
   const [productIndex, setProductIndex] = useState<number>(0);
+  const [tableData, setTableData] = useState<Array<OrderProduct>>([]);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    setTableData(orderData?.products);
+    setTotal(orderData?.products.reduce((res, item) => res + item.price * item.quantity, 0));
+  }, [orderData]);
 
   const changeStatusOfProduct = (id: string, val: number) => {
     dispatch(
@@ -49,13 +59,18 @@ const OrderTable: React.FC<Props> = ({ tableData, clickEditProduct }) => {
 
   return (
     <Container>
+      <Dashbar
+        supplier={orderData.supplier}
+        shopping_date={orderData.shopping_date}
+        total={total}
+      />
       <Card>
         <CardHeader>
           <Wrapper width="38%" flexDirection="row">
-            <SearchGroup placeholder="Search..."></SearchGroup>
+            <SearchGroup placeholder="Search..." />
           </Wrapper>
           <Wrapper flexDirection="row">
-            <Button>Add item</Button>
+            <Button onClick={openAddModal}>Add item</Button>
             <PrintIcon cx="0em 0em 0em 2em"></PrintIcon>
           </Wrapper>
         </CardHeader>
@@ -72,7 +87,7 @@ const OrderTable: React.FC<Props> = ({ tableData, clickEditProduct }) => {
               </tr>
             </thead>
             <tbody>
-              {tableData?.map((row, index) => (
+              {tableData?.map((row: OrderProduct, index: number) => (
                 <tr key={row.id}>
                   <td>
                     <img src={AvocadoHass} alt="Logo" />

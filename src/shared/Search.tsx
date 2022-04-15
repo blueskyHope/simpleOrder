@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { SearchIcon } from './Icons';
 
@@ -56,17 +57,23 @@ export const SearchIconWrapper = styled.span`
   }
 `;
 
-import React from 'react';
-
 interface Props {
   className?: string;
   placeholder?: string;
+  onSearch?: (filterKey: string) => void;
 }
 
-export const SearchGroup: React.FC<Props> = ({ className, placeholder }) => {
+export const SearchGroup: React.FC<Props> = ({ className, placeholder, onSearch = () => {} }) => {
+  const [filter, setFilter] = useState<string>('');
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const value = e.currentTarget.value;
+    if (value.length > 2 || value === '') onSearch(value);
+    setFilter(value);
+  };
+
   return (
     <SearchBox className={className}>
-      <SearchInput placeholder={placeholder}></SearchInput>
+      <SearchInput placeholder={placeholder} value={filter} onChange={handleChange} />
       <SearchIcon />
     </SearchBox>
   );

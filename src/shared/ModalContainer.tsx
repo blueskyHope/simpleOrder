@@ -15,7 +15,7 @@ export const ModalContainer = styled.div`
     ({
       [CM_CENTER_CENTER]: '50%',
       [CM_TOP_LEFT]: '30%',
-      [CM_TOP_CENTER]: '30%',
+      [CM_TOP_CENTER]: '20%',
       [CM_TOP_RIGHT]: '30%'
     }[openPos])};
 

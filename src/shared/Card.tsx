@@ -5,20 +5,17 @@ export const Card = styled.div`
   border-radius: 10px;
   background-color: white;
   padding: 0.78em;
-  width: 85%;
-`;
-
-export const CardHeading = styled.h1`
-  padding: 0em 1.5em 0em 1.5em;
-  font-size: 1.28em;
-  font-weight: bold;
-  color: #929292;
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: ${(props: { marginTop?: string }) => (props.marginTop ? props.marginTop : '')};
 `;
 
 export const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   color: black;
   background-color: white;
   padding: 1.2em 1.5em 1em 1.5em;
