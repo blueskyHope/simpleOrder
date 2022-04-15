@@ -17,7 +17,7 @@ export const Image = styled.img`
 `;
 
 export const ButtonCircle = styled.button`
-  background: #acac35;
+  background: #2bd32b;
   height: 50px;
   width: 50px;
   color: white;

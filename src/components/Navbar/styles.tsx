@@ -10,7 +10,7 @@ export const Text = styled(BasicText)`
 
 export const Container = styled(BasicContainer)`
   color: white;
-  background-color: #205f07;
+  background-color: #186239;
   padding: 0 8% 0 8%;
 `;
 

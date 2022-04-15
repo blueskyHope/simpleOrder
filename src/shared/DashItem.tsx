@@ -10,7 +10,7 @@ const Content = styled.div`
 
 const ItemView = styled.div`
   width: 15%;
-  height: 100%;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -30,7 +30,10 @@ const AddModal: React.FC<Props> = ({ show, onClose }) => {
 
   useEffect(() => {
     const o: OrderProduct[] = JSON.parse(JSON.stringify(products));
-    o?.forEach((item) => (item.status = 0));
+    o?.forEach((item) => {
+      item.quantity = 0;
+      item.status = 0;
+    });
     if (o) setList(o);
   }, [products]);
 
@@ -145,7 +148,12 @@ const AddModal: React.FC<Props> = ({ show, onClose }) => {
         </CardBody>
         <CardFooter>
           <Wrapper flexDirection="row">
-            <Text>Total: {products ? products.length : 0} product</Text>
+            <Text color="#186239" fontWeight="bold" fontSize="25px">
+              Total:
+            </Text>
+            <Text color="#186239" fontSize="20px">
+              {products ? products.length : 0} product
+            </Text>
           </Wrapper>
           {review ? (
             <Wrapper flexDirection="row">

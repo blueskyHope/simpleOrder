@@ -8,19 +8,16 @@ export const Button = styled.button`
   color: green;
   font-weight: 900;
   &:hover {
-    background-color: #ebc2c2;
+    background-color: #e9d5d5;
   }
   &:active {
-    background-color: yellow;
+    background-color: #e6b4b4;
   }
 `;
 
 export const ColorButton = styled(Button)`
   background-color: #186239;
   color: white;
-  &:active {
-    background-color: black;
-  }
 `;
 
 interface Props {
